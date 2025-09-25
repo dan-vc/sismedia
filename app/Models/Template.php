@@ -9,4 +9,23 @@ class Template extends Model
 {
     /** @use HasFactory<\Database\Factories\TemplateFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'thumbnail',
+        'content'
+    ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class, 'tag_template');
+    }
 }

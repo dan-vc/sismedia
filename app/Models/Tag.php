@@ -9,4 +9,14 @@ class Tag extends Model
 {
     /** @use HasFactory<\Database\Factories\TagFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'slug',
+    ];
+
+    public function templates() {
+        return $this->belongsToMany(Template::class, 'tag_template');
+    }
 }
