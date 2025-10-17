@@ -14,7 +14,8 @@ class Template extends Model
         'name',
         'description',
         'thumbnail',
-        'content'
+        'content',
+        'is_active',
     ];
 
     public function user() {
